@@ -28,3 +28,5 @@
 
 ### :black_nib: Autor
 <p>Ivan Teotonio Acioli Junior</p>
+
+Status do Projeto: Em desenvolvimento :warning:
