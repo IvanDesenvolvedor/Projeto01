@@ -1,5 +1,5 @@
 <h1 align="center">Portifólio</h1>
-<p>Um portfólio para divulgar minhas habilidades e meus projetos</p>
+<h3 align="center">Um portfólio para divulgar minhas habilidades e meus projetos</h3>
 
 #### Index
 ![index](https://github.com/IvanDesenvolvedor/portifolio/blob/master/imagens/imgreadm1.PNG)
