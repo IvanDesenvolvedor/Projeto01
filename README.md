@@ -1,2 +1,2 @@
-# portifolio
+# Portifolio
 ##Um portfólio para divulgar minhas habilidades e meus projetos
