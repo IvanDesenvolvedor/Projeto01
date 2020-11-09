@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+html,body{
+    height: 100%;
+    background: rgb(225,225,225);  
+}
+
+/*começo página de login*/
+
+.box-login{
+    max-width: 600px;
+    width: 95%;
+    padding:60px 2%;
+    box-shadow: 10px 10px 8px rgb(200, 200, 200);
+    background: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+.box-login h2{
+    text-align: center;
+    font-size: 19px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 10px 0;
+    color: black;
+}
+
+.box-login input[type=text],[type=password]{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding:0 0 0 8px ;
+    margin-top: 8px;
+}
+
+.box-login input[type=submit]{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 8px 0 0 0 ;
+    background: #1de9b6;
+    color: white;
+    border: 0;
+}
+
+.error-box{
+    width: 100%;
+    padding: 8px 2%;
+    text-align: center;
+    background: rgb(206, 67, 67);
+    color: #ffffff;
+    font-size: 15px;
+}
+/*fim página de login*/
+
+/*página painel de controle */
+.clear{
+    clear: both;
+}
+
+.center{
+  
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+header{
+    padding: 10px 0;
+    background: #78989c;
+    width: calc(100% - 300px);
+    float: left;
+}
+
+.loggout{
+    float: right;
+}
+
+.loggout a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.loggout a > span{
+    font-size: 17px;
+}
+
+.menu-btn{
+    float: left;
+    cursor: pointer;
+    font-size: 23px;
+    color: white;
+}
+
+aside.menu{
+    overflow-y: auto;
+    height: 100%;
+    float:left;
+    padding: 10px;
+    width: 300px;
+    background:#455a64;
+}
+
+div.box-usuario{
+    text-align: center;
+}
+
+.avatar-usuario{
+    text-align: left;
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #2f3d42;
+}
+
+.avatar-usuario i{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    font-size: 50px;
+    color:#2f3d42;
+}
+
+.nome-usuario{
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.nome-usuario p{
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+}
