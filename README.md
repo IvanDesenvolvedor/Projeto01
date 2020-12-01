@@ -1,19 +1,8 @@
 <h1 align="center">Portifólio</h1>
 <h3 align="center">Um portfólio para divulgar minhas habilidades e meus projetos</h3>
 
-#### Index
-![index](https://github.com/IvanDesenvolvedor/portifolio/blob/master/imagens/imgreadm1.PNG)
-
-![index](https://github.com/IvanDesenvolvedor/portifolio/blob/master/imagens/imgreadm2.PNG)
-
-
-#### Tela de contato
-
-![tela de contato](https://github.com/IvanDesenvolvedor/portifolio/blob/master/imagens/imgreadm3.PNG)
-
-#### Totalmente responsivo
-
-![index responsivo](https://github.com/IvanDesenvolvedor/portifolio/blob/master/imagens/imgreadm4.PNG)
+#### Gif das telas
+<img width="700" height="600" align="center" src="https://github.com/IvanDesenvolvedor/portifolio/blob/master/imagens/potgif.gif">
 
 ### :wrench: Técnologias utilizadas
 <ul>

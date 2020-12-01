@@ -41,7 +41,7 @@ $(function(){
         $('.banner-single').eq(curSlide).stop().fadeIn(1000)//mostra
         $('.bullets span').removeClass('active-slider')
         currentBullet.addClass('active-slider')
-    })
+    }) 
        
-    
+
 })
