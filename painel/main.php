@@ -74,5 +74,6 @@
         </div><!--content-->
 
     <script src="<?php echo INCLUDE_PATH; ?>js/jquary.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>js/jquary.mask.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL; ?>js/main.js"></script>
 </body>

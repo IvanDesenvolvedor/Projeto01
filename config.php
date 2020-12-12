@@ -11,7 +11,7 @@ $autoload = function($class){
 
 spl_autoload_register($autoload);
 
-define('INCLUDE_PATH','http://localhost/portfolio/'); 
+define('INCLUDE_PATH','http://localhost/Projeto01/'); 
 define('INCLUDE_PATH_PAINEL',INCLUDE_PATH.'painel/');
 define('BASE_DIR_PAINEL',__DIR__.'/painel');
 //conectar com o banco de dados

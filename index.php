@@ -100,7 +100,7 @@
       
     <?php } ?>
 
-    <!--<script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script> -->
+    <script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script> 
     <script src="<?php echo INCLUDE_PATH; ?>js/formularios.js"></script> 
    
 </body>

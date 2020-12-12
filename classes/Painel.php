@@ -128,10 +128,76 @@ class Painel {
             }
             return $certo;
           }
-          public static function selectAll($tabela){
-            $sql = MySql::conectar()->prepare("SELECT * FROM $tabela");
+
+          public static function update($arr,$single = false){
+			$certo = true;
+			$first = false;
+			$nome_tabela = $arr['nome_tabela'];
+
+			$query = "UPDATE `$nome_tabela` SET ";
+			foreach ($arr as $key => $value) {
+				$nome = $key;
+				$valor = $value;
+				if($nome == 'acao' || $nome == 'nome_tabela' || $nome == 'id')
+					continue;
+				if($value == ''){
+					$certo = false;
+					break;
+				}
+				
+				if($first == false){
+					$first = true;
+					$query.="$nome=?";
+				}
+				else{
+					$query.=",$nome=?";
+				}
+
+				$parametros[] = $value;
+			}
+
+			if($certo == true){
+				if($single == false){
+					$parametros[] = $arr['id'];
+					$sql = MySql::conectar()->prepare($query.' WHERE id=?');
+					$sql->execute($parametros);
+				}else{
+					$sql = MySql::conectar()->prepare($query);
+					$sql->execute($parametros);
+				}
+			}
+			return $certo;
+		}
+
+          public static function selectAll($tabela,$start=null,$and=null){
+            if($start == null && $and == null){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela`");
+            }else{
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` LIMIT $start,$and");
+            }
             $sql->execute();
+
+            
             return $sql->fetchAll();
           }
+          public static function deletar($tabela,$id=false){
+            if($id == false){
+                $sql = MySql::conectar()->prepare("DELETE  FROM `$tabela`");
+            }else{
+                $sql = MySql::conectar()->prepare("DELETE  FROM `$tabela` WHERE id = $id");
+            }
+            $sql->execute();
+          }
+          public static function redirect($url){
+             echo '<script>location.href="'.$url.'"</script>';
+            die();
+          }
+          //seleciona apenas um registro
+          public static function select($table, $query, $arr){
+             $sql = Mysql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
+             $sql->execute($arr);
+             return $sql->fetch();
+          }
+         
       }
 ?>

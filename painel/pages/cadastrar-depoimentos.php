@@ -30,7 +30,7 @@
 
     <div class="form-group">
        <label for="data">Data:</label>
-        <input type="text" name="data" id="data" >
+        <input formato="data" type="text" name="data" id="data" >
     </div><!--form-group-->
   
   <div class="form-group">
