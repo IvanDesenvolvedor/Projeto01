@@ -125,6 +125,9 @@ class Painel {
             if($certo == true){
             $sql = MySql::conectar()->prepare($query);
             $sql->execute($parametros);
+            $lastId = MySql::conectar()->lastInsertId();
+            $sql = MySql::conectar()->prepare("UPDATE `$nome_tabela` SET order_id = ? WHERE id = $lastId");
+            $sql->execute(array($lastId));
             }
             return $certo;
           }
@@ -171,9 +174,9 @@ class Painel {
 
           public static function selectAll($tabela,$start=null,$and=null){
             if($start == null && $and == null){
-            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela`");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id ASC");
             }else{
-            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` LIMIT $start,$and");
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id ASC LIMIT $start,$and");
             }
             $sql->execute();
 
@@ -193,11 +196,40 @@ class Painel {
             die();
           }
           //seleciona apenas um registro
-          public static function select($table, $query, $arr){
-             $sql = Mysql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
-             $sql->execute($arr);
-             return $sql->fetch();
-          }
+          public static function select($table,$query = '',$arr = ''){
+			if($query != false){
+				$sql = MySql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
+				$sql->execute($arr);
+			}else{
+				$sql = MySql::conectar()->prepare("SELECT * FROM `$table`");
+				$sql->execute();
+			}
+			return $sql->fetch();
+		}
+
+          public static function orderItem($tabela,$orderType,$idItem){
+			if($orderType == 'up'){
+				$infoItemAtual = Painel::select($tabela,'id=?',array($idItem));
+				$order_id = $infoItemAtual['order_id'];
+				$itemBefore = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE order_id < $order_id ORDER BY order_id DESC LIMIT 1");
+				$itemBefore->execute();
+				if($itemBefore->rowCount() == 0)
+					return;
+				$itemBefore = $itemBefore->fetch();
+				Painel::update(array('nome_tabela'=>$tabela,'id'=>$itemBefore['id'],'order_id'=>$infoItemAtual['order_id']));
+				Painel::update(array('nome_tabela'=>$tabela,'id'=>$infoItemAtual['id'],'order_id'=>$itemBefore['order_id']));
+			}else if($orderType == 'down'){
+				$infoItemAtual = Painel::select($tabela,'id=?',array($idItem));
+				$order_id = $infoItemAtual['order_id'];
+				$itemBefore = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE order_id > $order_id ORDER BY order_id ASC LIMIT 1");
+				$itemBefore->execute();
+				if($itemBefore->rowCount() == 0)
+					return;
+				$itemBefore = $itemBefore->fetch();
+				Painel::update(array('nome_tabela'=>$tabela,'id'=>$itemBefore['id'],'order_id'=>$infoItemAtual['order_id']));
+				Painel::update(array('nome_tabela'=>$tabela,'id'=>$infoItemAtual['id'],'order_id'=>$itemBefore['order_id']));
+			}
+		}
          
       }
 ?>

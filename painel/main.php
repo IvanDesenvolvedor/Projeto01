@@ -36,19 +36,21 @@
         <div class="items-menu">
                 <h2>Cadastro</h2>
                 <a <?php Painel::selecionadoMenu('cadastrar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-depoimentos">Cadastrar Depoimentos</a>
-                <a <?php Painel::selecionadoMenu('cadastrar-servico'); ?> href="">Cadastrar Serviços</a>
-                <a <?php Painel::selecionadoMenu('cadastrar-slides'); ?> href="">Cadastrar Slides</a>
+                <a <?php Painel::selecionadoMenu('cadastrar-servico'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-servico">Cadastrar Serviços</a>
+                <a <?php Painel::selecionadoMenu('cadastrar-slides'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-slides">Cadastrar Slides</a>
                 <h2>Gestão</h2>
                 <a <?php Painel::selecionadoMenu('listar-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-depoimentos">Listar Depoimentos</a>
-                <a <?php Painel::selecionadoMenu('Listar-Servicos'); ?> href="">Listar Serviços</a>
-                <a <?php Painel::selecionadoMenu('Listar-Slides'); ?> href="">Listar Slides</a>
+                <a <?php Painel::selecionadoMenu('Listar-Servicos'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-servicos">Listar Serviços</a>
+                <a <?php Painel::selecionadoMenu('Listar-Slides'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-slides">Listar Slides</a>
                 <h2>Administração do Painel</h2>
                 <a <?php Painel::selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PAINEL; 
                 ?>editar-usuario">Editar Usuario</a>
+                <a <?php Painel::selecionadoMenu('editar-slides'); ?> href="<?php echo INCLUDE_PATH_PAINEL; 
+                ?>editar-slides">Editar Slides</a>
                 <a <?php Painel::selecionadoMenu('adicionar-usuario'); ?> <?php Painel::verificaPermissaoMenu(2); 
                  ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>adicionar-usuario">Adicionar Usuário</a>
                 <h2>Configuração Geral</h2>
-                <a <?php Painel::selecionadoMenu('editar-site'); ?> href="">Editar Site</a>
+                <a <?php Painel::selecionadoMenu('editar-site'); ?> href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-site">Editar Site</a>
         </div><!--items-menu-->
         </div><!--menu-wrapper-->
             </div><!--menu-->

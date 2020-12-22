@@ -38,5 +38,20 @@ class Site{
             $sql->execute(array($_SERVER['REMOTE_ADDR'],date('Y-m-d')));
         }
     }
-   
+
+    public static function depoimentoDinamico($tabela){
+        //$depoimentos = [];
+        $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id ASC LIMIT 3");
+        $sql->execute();
+        $depoimentos = $sql->fetchAll();
+       return $depoimentos;
+    }
+
+  /*  public static function servicoDinamico(){ 
+        //$depoimentos = [];
+        $sql = MySql::conectar()->prepare("SELECT * FROM `tb_site_servicos` ORDER BY order_id ASC LIMIT 3");
+        $sql->execute();
+        $servicos = $sql->fetchAll();
+       return $servicos;
+    }  */
 }

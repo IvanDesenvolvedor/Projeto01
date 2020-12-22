@@ -34,6 +34,7 @@
     </div><!--form-group-->
   
   <div class="form-group">
+        <input type="hidden" name="order_id" value="0">
         <input type="hidden" name="nome_tabela" value="tb_site_depoimentos">
         <input type="submit" name="acao"  value="Atualizar">
     </div><!--form-group-->

@@ -1,6 +1,12 @@
 <?php include('config.php');  ?>
 <?php Site::updateUsuarioOnline();  ?>
 <?php Site::contador(); ?>
+<?php 
+  $infoSite = MySql::conectar()->prepare("SELECT * FROM `tb_site_config`");
+  $infoSite->execute();
+  $infoSite = $infoSite->fetch();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,7 +19,7 @@
     <meta name="keywords" content="Palavras, chaves, do, site">
     <meta name="description" content="Descrição do meu site">
     <link rel="icon" href="<?php echo INCLUDE_PATH; ?>favicon.ico" type="image/x-icon">
-    <title>Portfólio</title>
+    <title><?php echo $infoSite['titulo']; ?></title>
 </head>
 
 <body>
